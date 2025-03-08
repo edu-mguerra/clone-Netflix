@@ -1,31 +1,38 @@
-.movieRow{
+.movieRow {
     margin-bottom: 30px;
 }
-.movieRow h2{
+
+.movieRow h2 {
     margin: 0px 0px 0px 30px;
 }
-.movieRow--listarea{
+
+.movieRow--listarea {
     overflow-x: hidden;
     padding-left: 30px;
 }
-.movieRow--list{
+
+.movieRow--list {
     transition: all ease 0.2s;
 }
-.movieRow--item{
+
+.movieRow--item {
     display: inline-block;
     width: 150px;
     cursor: pointer;
 }
-.movieRow--item img{
+
+.movieRow--item img {
     width: 100%;
     transform: scale(0.9);
     transition: all ease 0.3s;
 }
-.movieRow--item img:hover{
+
+.movieRow--item img:hover {
     transform: scale(1);
 }
+
 .movieRow--left,
-.movieRow--right{
+.movieRow--right {
     position: absolute;
     width: 40px;
     height: 225px;
@@ -43,20 +50,31 @@
     -webkit-user-select: none;
     -ms-user-select: none;
 }
-.movieRow--left{
+
+.movieRow--left {
     left: 0;
 }
-.movieRow--right{
+
+.movieRow--right {
     right: 0;
 }
+
 .movieRow:hover .movieRow--left,
-.movieRow:hover .movieRow--right{
+.movieRow:hover .movieRow--right {
     opacity: 1;
 }
 
-@media (max-width:760px){
+@media (max-width:760px) {
+
     .movieRow--left,
-    .movieRow--right{
+    .movieRow--right {
         opacity: 1;
+
+    }
+
+    .movieRow--left,
+    .movieRow--right p {
+        font-size: 10px;
+
     }
 }
