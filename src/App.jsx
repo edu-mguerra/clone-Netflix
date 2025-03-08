@@ -17,37 +17,37 @@ export default () => {
 
       // pegando o featured
 
-      let originals = list.filter(i=>i.slug === 'originais');
-      if(originals.length >0){
-      let randomChosen = Math.floor(Math.random() * (originals[0].items.results.length -1));
-      let chosen = originals[0].items.results[randomChosen];
-      let chosenInfo = await Tmdb.getMovieInfo(chosen.id, 'tv')
-      setFeaturedData(chosenInfo)
+      let originals = list.filter(i => i.slug === 'originais');
+      if (originals.length > 0) {
+        let randomChosen = Math.floor(Math.random() * (originals[0].items.results.length - 1));
+        let chosen = originals[0].items.results[randomChosen];
+        let chosenInfo = await Tmdb.getMovieInfo(chosen.id, 'tv')
+        setFeaturedData(chosenInfo)
       }
 
-     
+
     }
 
     loadAll();
   }, [])
 
-  useEffect(()=>{
-    const scrollListener = () =>{
-      if(window.scrollY > 10){
+  useEffect(() => {
+    const scrollListener = () => {
+      if (window.scrollY > 10) {
         setBlackHeader(true)
-      }else{
+      } else {
         setBlackHeader(false)
       }
     }
-    window.addEventListener('scroll',scrollListener )
-    return() => {
-      window.removeEventListener('scroll',scrollListener )
+    window.addEventListener('scroll', scrollListener)
+    return () => {
+      window.removeEventListener('scroll', scrollListener)
     }
   }, [])
   return (
     <div className="page">
 
-      <Header black={blackHeader}/>
+      <Header black={blackHeader} />
 
       {featuredData &&
         <FreaturedMovie item={featuredData} />
@@ -59,11 +59,12 @@ export default () => {
         ))}
       </section>
 
-      <footer>
-        Feito por @eduardo.mguerra<br/>
-        Direitos de images para a Netflix<br/>
-        Dados da API retirado do site Themoviedb.org
+      <footer class="footer">
+        <p>Feito por <span>@eduardo.mguerra</span></p>
+        <p>🎬 Direitos de imagens para a <span>Netflix</span></p>
+        <p>📊 Dados da API retirados do <a href="https://www.themoviedb.org/" target="_blank">TheMovieDB.org</a></p>
       </footer>
+
 
       {movieList.length <= 0 &&
         <div className="loading">
